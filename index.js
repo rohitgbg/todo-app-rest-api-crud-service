@@ -9,7 +9,6 @@ var port = Number(process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-
 mongoose.connect(dbConfig.url, (err)=>{
     if(err){
         console.log("Error occured while connecting to MongoDB: "+err);
@@ -18,17 +17,9 @@ mongoose.connect(dbConfig.url, (err)=>{
     }
 });
 
-
 app.get('/', (req, res)=>{
     res.send("This is home page");
 });
-
-app.get('*', (req, res) =>{
-   return res.status(404).send({
-        message: "Requested URL not found"
-    })
-});
-
 
 require('./app/routes/todo.routes.js')(app);
 app.listen(port, (err)=>{
@@ -37,4 +28,4 @@ app.listen(port, (err)=>{
     } else {
         console.log("App running on port: "+port);
     }
-})
+});

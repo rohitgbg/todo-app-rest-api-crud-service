@@ -1,12 +1,14 @@
 const Todo = require('../models/todo.model.js');
 
-const title = req.body.title;
-const content = req.body.content;
 
 //create note
 exports.create = (req, res) => {
+
+    const title = req.body.title;
+    const content = req.body.content;
+
     if (!title || !content) {
-        return res.status(400).send({
+        return res.status(404).send({
             message: "Title and Content can not be empty"
         })
     }
@@ -62,5 +64,5 @@ exports.findOne = (req, res) => {
 
 //update note
 exports.update = (req, res) => {
-    
+
 };

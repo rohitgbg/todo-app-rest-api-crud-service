@@ -14,4 +14,4 @@ module.exports = (app) =>{
     //route for updating note
     app.put('/todos/:todoId', todos.update);
 
-}
+};
