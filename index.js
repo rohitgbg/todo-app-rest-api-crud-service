@@ -24,7 +24,7 @@ app.get('/', (req, res)=>{
 });
 
 app.get('*', (req, res) =>{
-    res.status(404).send({
+   return res.status(404).send({
         message: "Requested URL not found"
     })
 });
