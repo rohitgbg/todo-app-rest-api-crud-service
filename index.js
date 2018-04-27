@@ -23,6 +23,12 @@ app.get('/', (req, res)=>{
     res.send("This is home page");
 });
 
+app.get('*', (req, res) =>{
+    res.status(404).send({
+        message: "Requested URL not found"
+    })
+});
+
 
 require('./app/routes/todo.routes.js')(app);
 app.listen(port, (err)=>{

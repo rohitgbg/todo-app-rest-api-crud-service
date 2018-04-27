@@ -11,4 +11,7 @@ module.exports = (app) =>{
     //route for retrieving note by its id
     app.get('/todos/:todoId', todos.findOne);
 
+    //route for updating note
+    app.put('/todos/:todoId', todos.update);
+
 }
