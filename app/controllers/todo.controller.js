@@ -8,7 +8,8 @@ exports.create = (req, res) => {
     const content = req.body.content;
 
     if (!title || !content) {
-        return res.status(404).send({
+        return res.status(400).send({
+            status: res.statusCode,
             message: "Title and Content can not be empty"
         })
     }
@@ -24,6 +25,7 @@ exports.create = (req, res) => {
         })
         .catch(error => {
             res.status(500).send({
+                status: res.statusCode,
                 message: "Error occured"
             })
         })
@@ -40,6 +42,7 @@ exports.findAll = (req, res) => {
         })
         .catch(error => {
             res.status(500).send({
+                status: res.statusCode,
                 message: "Error occured"
             })
         })
@@ -57,6 +60,7 @@ exports.findOne = (req, res) => {
         })
         .catch(error => {
             res.status(500).send({
+                status: res.statusCode,
                 message: "Error occured"
             })
         })
