@@ -1,10 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const hbs = require('hbs');
 const mongoose = require('mongoose');
 const dbConfig = require('./config/database.config');
 
 var app = express();
 var port = Number(process.env.PORT || 3000);
+
+app.set('view engine', 'hbs');
+
+hbs.registerPartials(__dirname +'/views/partials');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -20,7 +25,7 @@ mongoose.connect(dbConfig.url, (err) => {
 });
 
 app.get('/', (req, res) => {
-    res.send("This is home page");
+    res.render('home');
 });
 
 

@@ -134,5 +134,5 @@ exports.delete = (req, res) => {
                     message: "Could not delete note with id " + req.params.todoId
                 });
             }
-  })
+        })
 }
