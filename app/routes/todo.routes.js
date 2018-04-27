@@ -14,4 +14,7 @@ module.exports = (app) =>{
     //route for updating note
     app.put('/todos/:todoId', todos.update);
 
+    //route for deleting a note
+    app.delete('/todos/:todoId', todos.delete);
+
 };
